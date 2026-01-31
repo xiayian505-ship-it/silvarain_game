@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silvarain Story</title>
+<link rel="stylesheet" href="./css/story_ui.css">
+</head>
+
+<body>
+
+<!-- 🌌 背景層 -->
+<div class="bg_layer"></div>
+
+<!-- 🎭 立繪層 -->
+<div class="sprite_layer">
+  <img id="sprite_left" class="sprite left" src="" alt="">
+  <img id="sprite_right" class="sprite right" src="" alt="">
+</div>
+
+<!-- 💬 對話框區 -->
+<div class="dialogue_ui">
+
+  <div class="namebox">角色名稱</div>
+
+  <div class="textbox" id="textbox">
+    這裡是對話文字顯示區。
+  </div>
+<div class="nextbox">
+  <button id="nextBtn">Next ›</button>
+</div>
+<button onclick="goHome()">返回主選單</button>
+  <div class="choicebox" id="choicebox">
+    <!-- 選項按鈕將來會動態加入 -->
+  </div>
+
+</div>
+
+<script src="./js/story_ui.js"></script>
+</body>
+</html>
