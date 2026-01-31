@@ -1,0 +1,234 @@
+:root{
+  --bg0:#f6f7f9;
+  --bg1:#eef0f3;
+  --card:#ffffffcc;
+  --ink:#1f2328;
+  --muted:#6b7280;
+  --line:rgba(15,23,42,.10);
+
+  --shadow:0 18px 45px rgba(0,0,0,.10);
+  --shadow-soft:0 10px 25px rgba(0,0,0,.08);
+
+  --radius:18px;
+
+  /* ✅ 左欄寬度：桌機較寬、手機自動縮到更窄 */
+  --sidebar-w:180px;
+  --sidebar-w-compact:110px;
+
+  --mono: ui-monospace, Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Noto Sans TC", sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:
+    radial-gradient(900px 520px at 20% 10%, #fff, transparent 60%),
+    radial-gradient(900px 520px at 85% 5%, rgba(220,225,235,.9), transparent 60%),
+    linear-gradient(180deg,var(--bg0),var(--bg1));
+}
+
+.app{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  padding:12px;
+}
+
+/* Top */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+}
+
+.topbar__left,.topbar__right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.brand{font-weight:700;}
+.chip{
+  font-size:13px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+/* ✅ 核心左右：永遠左右，不再切成一欄 */
+.layout{
+  flex:1;
+  display:grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  gap:12px;
+  padding:12px 0;
+  min-height:0;
+}
+
+/* ✅ 左側按鈕區：可捲動，永遠在左 */
+.sidebar{
+  padding:10px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+
+  /* 重點：按鈕多也不會把右邊擠爆 */
+  overflow:auto;
+  min-height:0;
+}
+
+/* 右側容器 */
+.gamecontainer{ display:flex; min-height:0; }
+
+.viewport{
+  flex:1;
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  display:flex;
+  min-height:0;
+}
+
+.viewport__inner{
+  margin:auto;
+  padding:16px;
+}
+
+.placeholder{
+  width:min(560px,92%);
+  background:#fff;
+  border:1px dashed rgba(15,23,42,.22);
+  border-radius:var(--radius);
+  padding:18px;
+}
+
+.placeholder__title{font-weight:800;margin-bottom:8px;}
+.placeholder__desc{color:var(--muted);font-size:14px;line-height:1.6;}
+
+/* Bottom */
+.bottombar{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+}
+
+.label{font-weight:700;}
+.muted{color:var(--muted);}
+.dot{margin:0 8px;color:rgba(0,0,0,.28);}
+
+/* Buttons */
+.btn{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:14px;
+  padding:10px 12px;
+}
+
+.btn--menu{ width:100%; text-align:left; }
+.btn--ghost{ background:rgba(0,0,0,.05); }
+.mono{ font-family:var(--mono); }
+
+/* ✅ 手機：縮左欄 + 按鈕變小（但仍然左右） */
+@media (max-width:680px){
+  .layout{
+    grid-template-columns: var(--sidebar-w-compact) 1fr;
+    gap:10px;
+  }
+
+  .sidebar{
+    padding:8px;
+    gap:8px;
+  }
+
+  .btn{
+    font-size:13px;
+    padding:9px 10px;
+    border-radius:10px;
+  }
+
+  .btn--menu{
+    text-align:center; /* 小欄位更像選單 */
+  }
+}
+
+/* 子選單容器（預設隱藏） */
+.submenu{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  margin-left:10px;
+  margin-top:-4px;
+}
+
+/* 展開狀態 */
+.submenu.open{
+  display:flex;
+}
+
+/* 子按鈕樣式 */
+.btn--sub{
+  width:100%;
+  text-align:left;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+}
+
+/* ===== 作品抬頭 ===== */
+.topbar{
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  padding:14px 16px 12px;
+}
+
+.titleblock{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.title-main{
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.title-sub{
+  font-size:14px;
+  color:var(--muted);
+  letter-spacing:.6px;
+}
+
+/* ===== 系統狀態列 ===== */
+.statusbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}

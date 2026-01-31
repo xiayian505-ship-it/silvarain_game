@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Silvarain｜鹿雨森</title>
+
+  <link rel="stylesheet" href="./css/style_ui.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Top Bar（已移除返回） -->
+<header class="topbar">
+
+  <!-- 🎮 作品標題層 -->
+  <div class="titleblock">
+    <div class="title-main">鹿雨森</div>
+    <div class="title-sub">Silvarain: Silent Antler of Silvarain</div>
+  </div>
+
+  <!-- 🧩 系統狀態列 -->
+  <div class="statusbar">
+    <div class="chip">玩家：<span class="mono">璐瑤</span></div>
+    <div class="chip">等級：<span class="mono">100</span></div>
+    <div class="chip">體力：<span class="mono">100</span></div>
+    <div class="chip">時間：<span class="mono">15:00</span></div>
+  </div>
+
+</header>
+
+    <!-- 左右核心結構 -->
+    <main class="layout">
+
+      <!-- 左側按鈕 -->
+<aside class="sidebar">
+
+  <button class="btn btn--menu">故事</button>
+  <button class="btn btn--menu">戰鬥</button>
+  <button class="btn btn--menu">讀檔</button>
+  <button class="btn btn--menu">存檔</button>
+
+  <!-- 成就（可展開） -->
+  <button class="btn btn--menu has-sub" id="achievementBtn">成就 ▸</button>
+
+  <div class="submenu" id="achievementSub">
+    <button class="btn btn--sub">番外</button>
+    <button class="btn btn--sub">立繪</button>
+  </div>
+
+</aside>
+
+      <!-- 主視窗 -->
+      <section class="gamecontainer">
+        <div class="viewport">
+          <div class="viewport__inner">
+            <div class="placeholder">
+              <div class="placeholder__title">主視窗（大）</div>
+              <div class="placeholder__desc">
+                背景、角色、對話框、事件動畫都會在這裡。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+  <script src="./js/ui_menu.js"></script>
+</body>
+</html>
