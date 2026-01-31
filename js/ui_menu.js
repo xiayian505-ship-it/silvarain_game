@@ -9,3 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.textContent = sub.classList.contains("open") ? "成就 ▾" : "成就 ▸";
   });
 });
+
+function goStory(){
+  window.location.href = "story.html";
+}
